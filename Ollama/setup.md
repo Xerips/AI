@@ -28,14 +28,16 @@
 
 - `sudo pacman -S ollama-cuda`: We will be using this command to download the ollama-cuda package to take advantage of our 3080ti's cuda cores.
   - If you're running an AMD graphics card, you don't want to use the ollama-cuda. Instead consider the base ollama, or ollama-rocm.
-- After installing the ollama version that works best with your hardware, run the command `ollama server` to start the ollama service.
+- After installing the ollama version that works best with your hardware, run the command `ollama serve` to start the ollama service.
   - Run `ollama` for a little usage help.
 - list models with `ollama list`
 
 **A few things to consider while choosing a model**:
 
 - I'm interested in using the dolphin-mixtral:latest model to see what it's like to stretch resources. It's an uncensored model and has 30 billion parameters (indicated by 30b when you look it up on hugging face or in ollama models).
-  - This model will use ALL of my 3080ti and will run smooth(well, it won't crash...), but slightly slower than ChatGPT. This model also requires a minimum of 40GB of RAM memory, which is a lot for most personal systems. Keep in mind you will also need RAM memory for any other processes you're running so 64GB of RAM will leave you sitting pretty. Having a good processor is also helpful, but most of the work will be done by the GPU and RAM memory in this setup.
+  - This model will run on my system (barely). For reference, I'm using an AMB Ryzen 9 5900X cpu, a RTX 3080ti, and 64 gigs of RAM.
+  - Ideally, you would have enough VRAM (GPU RAM) to run this bad boy, but ollama will offload some of the processing to your CPU and having a lot of RAM can help smooth things out.
+  - AI takes a lot of resources when you start going above 13B models.
 - I'm also interested in running the whiterabbit-neo model, a 13B model designed for use in offensive and defensive cybersecurity.
 
   - This model falls well within our system specs.
